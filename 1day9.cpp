@@ -1,60 +1,65 @@
 #include<bits/stdc++.h>
 using namespace std;
-int checkpalin(double data)
+bool compare(string &s1,string &s2)
 {
-    int num=data;
-    string str,str1;
-    if(data-num>0)
-    {
-        str=to_string(data);
-        str1=str;
-     
-    }
-    else{
-    str=to_string(num);
-    str1=str;
-    }
-   
-    reverse(str1.begin(),str1.end());
-        int i=0;
-        while(str[i]!='\0')
-        {
-            if(str[i]!=str1[i])
-                return 0;
-
-          i++;
-        }
-        return 1;
-    
+  return s1.size()<s2.size();
 }
-int main()
-{
-string left,right;
-    cin>>left>>right;
-   long long  int left_lim=stoll(left);
-    cout<<left_lim<<endl;
-    int right_lim=stoi(right);
-    string str,str1;
-    int count=0;
-    for(int i=left_lim;i<=right_lim;i++)
+class Solution {
+public:
+    int Compare(string s1,string s2)
     {
+        cout<<s1<<" "<<s2<<"\n";
 
+    for(int i=0;i<s1.length();i++)
+        {
+        for(int j=0;j<s2.length();j++)
+        {
+          //  cout<<s1[i]<<" "<<s2[j]<<"\n";
+            if(s1[i]==s2[j])
+            { cout<<"-1";
+                return 0;}
+           
         
-      if( checkpalin(i)&&checkpalin(sqrt(i)))
-      {
-          count++;
-      } 
+        }
+        
 
-     
-         
 
      }
-    
-    
-    cout<<count<<"\n";
-    
+        
+    return 1;
+    }
+    int maxProduct(vector<string>& words) {
+        sort(words.begin(),words.end(),compare);
+       int max=0;
+        for(int i=0;i<words.size();)
+        {
+          if(words[i].length()==words[i+1].length())          {
+              
+              if(max<words[i].length()  && Compare(words[i],words[i+1]))
+              {
+                  
+                  max=words[i].length();
+                  cout<<max;
+                  i+=2;
+                  
+              }
+              else
+              {
+i++;}
+          }
+            else
+            {
+                i++;
+            }
+        
+        
+        }
+        return max*max;
+    }
+};
+int main()
+{ Solution obj;
 
-
-
-
+    vector<string>status={"a","aa","aaa","aaaa"};
+    cout<<obj.
 }
